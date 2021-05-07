@@ -1,20 +1,25 @@
-from flask import (Flask, render_template, abort, jsonify, request,
-                   redirect, url_for)
+from flask import Flask, render_template
+#from flask import (Flask, render_template, abort, jsonify, request,
+#                   redirect, url_for)
 
-from model import db, save_db
+#from model import db, save_db
 
 app = Flask(__name__)
 
-
 @app.route("/")
+def welcome():
+    return render_template("welcome1.html", message="Hi there")
+
+
+""""@app.route("/")
 def welcome():
     return render_template(
         "welcome.html",
         cards=db
     )
+"""
 
-
-@app.route('/card/<int:index>')
+"""""@app.route('/card/<int:index>')
 def card_view(index):
     try:
         card = db[index]
@@ -63,3 +68,4 @@ def api_card_detail(index):
         return db[index]
     except IndexError:
         abort(404)
+"""
